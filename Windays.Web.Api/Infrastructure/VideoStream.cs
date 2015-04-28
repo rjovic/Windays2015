@@ -17,6 +17,8 @@ namespace Windays.Web.Api.Infrastructure
 
         public VideoStream(string filename, string ext)
         {
+            // TODO : replace this path with your own path to the folder where you have video files
+            // I suggest to use WebM format for streaming video because every browser have out of the box support for it
             _filename = @"C:\Users\Renato\Desktop\" + filename + "." + ext;
         }
 

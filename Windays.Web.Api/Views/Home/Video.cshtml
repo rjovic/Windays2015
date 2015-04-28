@@ -1,10 +1,14 @@
-﻿
+﻿@{
+    string domain = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host + (Request.Url.IsDefaultPort ? "" : ":" + Request.Url.Port);
+}
+
 <div class="row">
     <div class="col-md-12">
         <h1>Video player</h1>
 
+        <!-- Change NAME of the video file here ... stream/{extension}/{video file name}-->
         <video width="640" height="480" controls="controls" autoplay="autoplay">
-            <source src="http://localhost:55284/api/video/stream/webm/elephants-dream" type="video/webm">
+            <source src="@domain/api/video/stream/webm/elephants-dream" type="video/webm">
         </video>
 
     </div>
@@ -12,7 +16,7 @@
     <div class="col-md-12">
         <h1>File upload</h1>
 
-        <form action="http://localhost:55284/api/video/upload/browser" method="post" enctype="multipart/form-data">
+        <form action="@domain/api/video/upload/browser" method="post" enctype="multipart/form-data">
             <label for="somefile">File</label>
             <input name="somefile" type="file" multiple />
             <input type="submit" value="Submit" />

@@ -30,28 +30,32 @@
     </div>
 </div>
 
+@{
+    string domain = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host + (Request.Url.IsDefaultPort ? "" : ":" + Request.Url.Port);
+}
+
 @section scripts
 {
     <script type="text/javascript">
 
 
-        var PeopleModel = function () {
-            var self = this;
+    var PeopleModel = function () {
+        var self = this;
 
-            self.people = ko.observableArray();
+        self.people = ko.observableArray();
 
-            self.addPerson = function () {
-                //self.people.push({});
-            };
+        self.addPerson = function () {
+            //self.people.push({});
+        };
 
-            self.removePerson = function (person) {
-                self.people.remove(person);
-            };
+        self.removePerson = function (person) {
+            self.people.remove(person);
+        };
 
-            self.refreshPerson = function (person) {
-                $.ajax({
-                    method: "GET",
-                    url: "http://localhost:55284/api/people/" + person.Id()
+        self.refreshPerson = function (person) {
+            $.ajax({
+                method: "GET",
+                url: "@domain/api/people/" + person.Id()
                 }).always(function (data, textStatus, jqXHR) {
                     alert(textStatus);
                 });
@@ -60,7 +64,7 @@
             self.load = function () {
                 $.ajax({
                     method: "GET",
-                    url: "http://localhost:55284/api/people"
+                    url: "@domain/api/people"
                 }).done(function (data) {
                     ko.mapping.fromJS(data, {}, self.people);
                 });
