@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windays.Web.Api.Data", "Windays.Web.Api.Data\Windays.Web.Api.Data.csproj", "{C3C47EDD-4CA0-4D93-B17F-EC5A63B197ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windays.Web.Api", "Windays.Web.Api\Windays.Web.Api.csproj", "{9CC2F110-C10B-4A40-9F64-2F35145AE67B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C3C47EDD-4CA0-4D93-B17F-EC5A63B197ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3C47EDD-4CA0-4D93-B17F-EC5A63B197ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3C47EDD-4CA0-4D93-B17F-EC5A63B197ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3C47EDD-4CA0-4D93-B17F-EC5A63B197ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CC2F110-C10B-4A40-9F64-2F35145AE67B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CC2F110-C10B-4A40-9F64-2F35145AE67B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CC2F110-C10B-4A40-9F64-2F35145AE67B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CC2F110-C10B-4A40-9F64-2F35145AE67B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

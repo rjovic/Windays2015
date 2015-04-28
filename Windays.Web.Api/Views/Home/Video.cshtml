@@ -1,0 +1,23 @@
+﻿
+<div class="row">
+    <div class="col-md-12">
+        <h1>Video player</h1>
+
+        <video width="640" height="480" controls="controls" autoplay="autoplay">
+            <source src="http://localhost:55284/api/video/stream/webm/elephants-dream" type="video/webm">
+        </video>
+
+    </div>
+
+    <div class="col-md-12">
+        <h1>File upload</h1>
+
+        <form action="http://localhost:55284/api/video/upload/browser" method="post" enctype="multipart/form-data">
+            <label for="somefile">File</label>
+            <input name="somefile" type="file" multiple />
+            <input type="submit" value="Submit" />
+        </form>
+
+    </div>
+</div>
+

@@ -1,0 +1,74 @@
+﻿
+<div class="row">
+    <div class="col-md-12">
+        <h1>People list</h1>
+        <p>
+            <a id="getPeoplebtn" data-bind="click: load" class="btn btn-default" href="#">Get people</a>
+        </p>
+        <div id="people">
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Company</th>
+                    <th></th>
+                </tr>
+                <tbody data-bind="foreach: people">
+                    <tr>
+                        <td><span data-bind="text: Name"></span></td>
+                        <td><span data-bind="text: Location"></span></td>
+                        <td><span data-bind="text: Age"></span></td>
+                        <td><span data-bind="text: Gender"></span></td>
+                        <td><span data-bind="text: Company"></span></td>
+                        <td><button data-bind="click: $parent.refreshPerson">Refresh</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+
+
+        var PeopleModel = function () {
+            var self = this;
+
+            self.people = ko.observableArray();
+
+            self.addPerson = function () {
+                //self.people.push({});
+            };
+
+            self.removePerson = function (person) {
+                self.people.remove(person);
+            };
+
+            self.refreshPerson = function (person) {
+                $.ajax({
+                    method: "GET",
+                    url: "http://localhost:55284/api/people/" + person.Id()
+                }).always(function (data, textStatus, jqXHR) {
+                    alert(textStatus);
+                });
+            }
+
+            self.load = function () {
+                $.ajax({
+                    method: "GET",
+                    url: "http://localhost:55284/api/people"
+                }).done(function (data) {
+                    ko.mapping.fromJS(data, {}, self.people);
+                });
+            }
+        };
+
+        ko.applyBindings(new PeopleModel());
+
+    </script>
+
+}
